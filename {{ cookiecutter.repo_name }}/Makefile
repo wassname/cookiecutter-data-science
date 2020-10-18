@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3
+.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3 doc_reqs test
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -9,12 +9,6 @@ BUCKET = {{ cookiecutter.s3_bucket }}
 PROFILE = {{ cookiecutter.aws_profile }}
 PROJECT_NAME = {{ cookiecutter.repo_name }}
 PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
-
-ifeq (,$(shell which conda))
-HAS_CONDA=False
-else
-HAS_CONDA=True
-endif
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -56,25 +50,23 @@ endif
 
 ## Set up python interpreter environment
 create_environment:
-ifeq (True,$(HAS_CONDA))
-		@echo ">>> Detected conda, creating conda environment."
-ifeq (3,$(findstring 3,$(PYTHON_INTERPRETER)))
-	conda create --name $(PROJECT_NAME) python=3
-else
-	conda create --name $(PROJECT_NAME) python=2.7
-endif
-		@echo ">>> New conda env created. Activate with:\nsource activate $(PROJECT_NAME)"
-else
-	$(PYTHON_INTERPRETER) -m pip install -q virtualenv virtualenvwrapper
-	@echo ">>> Installing virtualenvwrapper if not already installed.\nMake sure the following lines are in shell startup file\n\
-	export WORKON_HOME=$$HOME/.virtualenvs\nexport PROJECT_HOME=$$HOME/Devel\nsource /usr/local/bin/virtualenvwrapper.sh\n"
-	@bash -c "source `which virtualenvwrapper.sh`;mkvirtualenv $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER)"
-	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
-endif
+	@echo ">>> Detected conda, creating conda environment."
+	conda create --name $(PROJECT_NAME) python=3 -f ./requirements/environment.yaml
+	@echo ">>> New conda env created. Activate with:\nsource activate $(PROJECT_NAME)"
 
 ## Test python environment is setup correctly
 test_environment:
 	$(PYTHON_INTERPRETER) test_environment.py
+
+## Run pytest
+test:
+	$(PYTHON_INTERPRETER) -m pytest ./test -v -s
+
+## Export project requirements in multiple formats
+doc_reqs:
+	conda env export --no-builds --from-history --name $(PROJECT_NAME) > requirements/environment.min.yaml
+	conda env export  --name $(PROJECT_NAME) > requirements/environment.max.yaml
+	$(PYTHON_INTERPRETER) -m pip freeze > requirements/requirements.txt --name
 
 #################################################################################
 # PROJECT RULES                                                                 #
