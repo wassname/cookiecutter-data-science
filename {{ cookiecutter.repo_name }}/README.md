@@ -52,6 +52,16 @@ Project Organization
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
+# Install requirements
+```
+conda create --name {{ cookiecutter.repo_name }} python=3.7 -f ./requirements/environment.yaml
+conda activate {{ cookiecutter.repo_name }} 
+# Install this package in editable mode
+python -m pip install -e .
+# Install kernel
+python -m ipykernel install --user --name {{ cookiecutter.repo_name }} --display-name {{ cookiecutter.repo_name }}
+```
+
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
