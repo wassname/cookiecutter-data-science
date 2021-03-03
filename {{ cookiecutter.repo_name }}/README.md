@@ -6,11 +6,9 @@
 Project Organization
 ------------
 
-    ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
@@ -23,13 +21,9 @@ Project Organization
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements       <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `conda env export > requirements/environment.yaml`
+    ├── requirements       <- The requirements files for reproducing the analysis environment, e.g.
+    │                         generated with `make doc_reqs`
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
     ├── src                <- Source code for use in this project.
@@ -47,9 +41,7 @@ Project Organization
     │   │   └── train_model.py
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+           └── visualize.py
 
 
 # Install requirements
@@ -60,6 +52,30 @@ conda activate {{ cookiecutter.repo_name }}
 python -m pip install -e .
 # Install kernel
 python -m ipykernel install --user --name {{ cookiecutter.repo_name }} --display-name {{ cookiecutter.repo_name }}
+```
+
+# AWS Policy for data sync
+
+See [this link](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_rw-bucket.html)
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ListObjectsInBucket",
+            "Effect": "Allow",
+            "Action": ["s3:ListBucket"],
+            "Resource": ["arn:aws:s3:::{{ cookiecutter.s3_bucket }}"]
+        },
+        {
+            "Sid": "AllObjectActions",
+            "Effect": "Allow",
+            "Action": "s3:*Object",
+            "Resource": ["arn:aws:s3:::{{ cookiecutter.s3_bucket }}/*"]
+        }
+    ]
+}
 ```
 
 --------
