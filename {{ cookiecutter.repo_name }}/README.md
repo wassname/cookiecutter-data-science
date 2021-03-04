@@ -54,6 +54,14 @@ python -m pip install -e .
 python -m ipykernel install --user --name {{ cookiecutter.repo_name }} --display-name {{ cookiecutter.repo_name }}
 ```
 
+# How to get data
+
+TODO document how to get the data
+
+# How to run
+
+TODO document how to run the code
+
 # AWS Policy for data sync
 
 See [this link](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_rw-bucket.html)
