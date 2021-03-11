@@ -4,6 +4,7 @@
 # GLOBALS                                                                       #
 #################################################################################
 
+SHELL := /bin/bash 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 BUCKET = {{ cookiecutter.s3_bucket }}
 PROFILE = {{ cookiecutter.aws_profile }}
