@@ -17,8 +17,7 @@ PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
 
 ## Install Python Dependencies
 requirements: test_environment
-	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
-	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	conda env create --name {{ cookiecutter.repo_name }} python=3.7 -f ./requirements/environment.yaml
 
 ## Make Dataset
 data: requirements
@@ -52,12 +51,8 @@ endif
 ## Set up python interpreter environment
 create_environment:
 	@echo ">>> Detected conda, creating conda environment."
-	conda create --name $(PROJECT_NAME) python=3 -f ./requirements/environment.yaml
+	conda env create --name $(PROJECT_NAME) python=3 -f ./requirements/environment.yaml
 	@echo ">>> New conda env created. Activate with:\nsource activate $(PROJECT_NAME)"
-
-## Test python environment is setup correctly
-test_environment:
-	$(PYTHON_INTERPRETER) test_environment.py
 
 ## Run pytest
 test:
@@ -68,6 +63,7 @@ doc_reqs:
 	conda env export --no-builds --from-history --name $(PROJECT_NAME) > requirements/environment.min.yaml
 	conda env export  --name $(PROJECT_NAME) > requirements/environment.max.yaml
 	$(PYTHON_INTERPRETER) -m pip freeze > requirements/requirements.conda.txt --name
+	conda-lock -f requirements/environment.max.yml -p linux-64
 
 #################################################################################
 # PROJECT RULES                                                                 #
