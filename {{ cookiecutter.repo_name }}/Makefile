@@ -61,9 +61,9 @@ test:
 ## Export project requirements in multiple formats
 doc_reqs:
 	conda env export --no-builds --from-history --name $(PROJECT_NAME) > requirements/environment.min.yaml
-	conda env export  --name $(PROJECT_NAME) > requirements/environment.max.yaml
-	$(PYTHON_INTERPRETER) -m pip freeze > requirements/requirements.conda.txt --name
-	conda-lock -f requirements/environment.max.yml -p linux-64
+	conda env export --name $(PROJECT_NAME) > requirements/environment.max.yaml
+	$(PYTHON_INTERPRETER) -m pip freeze > requirements/pip.conda.txt
+	cd requirements && conda-lock -f environment.max.yaml -p linux-64
 
 #################################################################################
 # PROJECT RULES                                                                 #
