@@ -1,10 +1,9 @@
-{{cookiecutter.project_name}}
-==============================
+# {{cookiecutter.project_name}}
+
 
 {{cookiecutter.description}}
 
-Project Organization
-------------
+## Project Organization
 
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
@@ -44,7 +43,7 @@ Project Organization
            └── visualize.py
 
 
-# Install requirements
+## Install requirements
 ```
 mamba env create --name {{ cookiecutter.repo_name }} python=3.9 -f ./requirements/environment.yaml
 conda activate {{ cookiecutter.repo_name }} 
@@ -54,15 +53,15 @@ python -m pip install -e .
 python -m ipykernel install --user --name {{ cookiecutter.repo_name }} --display-name {{ cookiecutter.repo_name }}
 ```
 
-# How to get data
+## How to get data
 
 TODO document how to get the data
 
-# How to run
+## How to run
 
 TODO document how to run the code
 
-# AWS Policy for data sync
+## AWS Policy for data sync
 
 See [this link](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_rw-bucket.html)
 
