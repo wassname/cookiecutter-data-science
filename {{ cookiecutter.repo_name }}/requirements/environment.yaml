@@ -10,6 +10,7 @@ dependencies:
   - ipykernel
   # external requirements
   - awscli
+  - python-dotenv
   - pip:
     # local package
     - -e ..
