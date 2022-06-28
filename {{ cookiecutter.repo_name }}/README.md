@@ -46,7 +46,7 @@ Project Organization
 
 # Install requirements
 ```
-conda env create --name {{ cookiecutter.repo_name }} python=3.7 -f ./requirements/environment.yaml
+conda env create --name {{ cookiecutter.repo_name }} python=3.9 -f ./requirements/environment.yaml
 conda activate {{ cookiecutter.repo_name }} 
 # Install this package in editable mode
 python -m pip install -e .
