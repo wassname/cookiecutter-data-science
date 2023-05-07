@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e -x
 # This script will document the requirements for multiple conda environments, see ./readme.md for more
+# Sometimes I like to do relaxed and strict requirements. The strict requirements lets you debug subtle version errors by asking "gee what exact version did they use".
+# The relaxed versioning makes it easy to upgrade
 
 # inputs
 PROJECT_NAMES='{{ cookiecutter.python_interpreter }}'
