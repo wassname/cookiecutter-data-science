@@ -1,0 +1,10 @@
+package := "{{cookiecutter.package_name}}"
+
+# put your run commands here
+app:
+   echo "hello world"
+
+# black and isort
+lint:  
+   ruff .
+

@@ -1,11 +1,10 @@
 # {{cookiecutter.project_name}}
 
-
 {{cookiecutter.description}}
 
 ## Project Organization
 
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
+    ├── Justfile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
     │   ├── interim        <- Intermediate data that has been transformed.
@@ -13,15 +12,10 @@
     │   └── raw            <- The original, immutable data dump.
     │
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── notebooks          <- Jupyter notebooks. Namiwith creator's initials, a number (for ordering), and short `-` delimited description, e.g.
+    │                         `jqp-1.0-initial-data-exploration`.
     │
-    │
-    ├── requirements       <- The requirements files for reproducing the analysis environment, e.g.
-    │                         generated with `make doc_reqs`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+    ├── pyproject.toml    <- defines project dependencies and build configuration
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
@@ -42,12 +36,7 @@
 
 ## Install requirements
 ```
-mamba env create --name {{ cookiecutter.repo_name }} python=3.9 -f ./requirements/environment.yaml
-conda activate {{ cookiecutter.repo_name }} 
-# Install this package in editable mode
-python -m pip install -e .
-# Install kernel
-python -m ipykernel install --user --name {{ cookiecutter.repo_name }} --display-name {{ cookiecutter.repo_name }}
+poetry install
 ```
 
 ## How to get data
@@ -57,30 +46,6 @@ TODO document how to get the data
 ## How to run
 
 TODO document how to run the code
-
-## AWS Policy for data sync
-
-See [this link](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_rw-bucket.html)
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "ListObjectsInBucket",
-            "Effect": "Allow",
-            "Action": ["s3:ListBucket"],
-            "Resource": ["arn:aws:s3:::{{ cookiecutter.s3_bucket }}"]
-        },
-        {
-            "Sid": "AllObjectActions",
-            "Effect": "Allow",
-            "Action": "s3:*Object",
-            "Resource": ["arn:aws:s3:::{{ cookiecutter.s3_bucket }}/*"]
-        }
-    ]
-}
-```
 
 --------
 
