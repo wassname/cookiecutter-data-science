@@ -7,9 +7,9 @@
     ├── Justfile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    │   ├── 30_processed      <- The final, canonical data sets for modeling.
+    │   ├── 20_interim        <- Intermediate data that has been transformed.
+    │   └── 10_raw            <- The original, immutable data dump.
     │
     │
     ├── notebooks          <- Jupyter notebooks. Namiwith creator's initials, a number (for ordering), and short `-` delimited description, e.g.
