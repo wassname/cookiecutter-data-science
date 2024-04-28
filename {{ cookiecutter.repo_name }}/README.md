@@ -12,7 +12,7 @@
     │   └── 10_raw            <- The original, immutable data dump.
     │
     │
-    ├── notebooks          <- Jupyter notebooks. Namiwith creator's initials, a number (for ordering), and short `-` delimited description, e.g.
+    ├── nbs                   <- Jupyter notebooks. Namiwith creator's initials, a number (for ordering), and short `-` delimited description, e.g.
     │                         `jqp-1.0-initial-data-exploration`.
     │
     ├── pyproject.toml    <- defines project dependencies and build configuration
@@ -35,6 +35,8 @@
 
 
 ## Install requirements
+
+This project uses poetry for requirement and is set up for torch using cuda.
 ```
 poetry install
 ```
@@ -45,7 +47,11 @@ TODO document how to get the data
 
 ## How to run
 
-TODO document how to run the code
+This project uses [just](https://github.com/casey/just)
+
+~~~
+just --list
+~~~
 
 --------
 
