@@ -11,7 +11,6 @@
     │   ├── 20_interim        <- Intermediate data that has been transformed.
     │   └── 10_raw            <- The original, immutable data dump.
     │
-    │
     ├── nbs                   <- Jupyter notebooks. Namiwith creator's initials, a number (for ordering), and short `-` delimited description, e.g.
     │                         `jqp-1.0-initial-data-exploration`.
     │
