@@ -1,4 +1,4 @@
-# Cookiecutter Data Science - Conda
+# Cookiecutter Data Science - using poetry and justfiles
 
 _A logical, reasonably standardized, but flexible project structure for doing and sharing data science work._
 
@@ -8,20 +8,12 @@ _A logical, reasonably standardized, but flexible project structure for doing an
 
 ### Requirements to use the cookiecutter template:
 -----------
- - Python 2.7 or 3.5
+ - Python 3.9+
  - [Cookiecutter Python package](http://cookiecutter.readthedocs.org/en/latest/installation.html) >= 1.4.0: This can be installed with pip by or conda depending on how you manage your Python packages:
 
 ``` bash
 $ pip install cookiecutter
 ```
-
-or
-
-``` bash
-$ conda config --add channels conda-forge
-$ conda install cookiecutter
-```
-
 
 ### To start a new project, run:
 ------------
@@ -38,7 +30,7 @@ $ conda install cookiecutter
 The directory structure of your new project looks like this: 
 
 ```
-├── Makefile           <- Makefile with commands like `make data` or `make train`
+├── justfile           <- justfile with commands like `just data` or `just train`
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
 │   ├── interim        <- Intermediate data that has been transformed.
@@ -47,11 +39,11 @@ The directory structure of your new project looks like this:
 │
 ├── models             <- Trained and serialized models, model predictions, or model summaries
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
+├── nbs          <- Jupyter notebooks. Naming convention is a number (for ordering),
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`.
 │
-├── requirements   <- The requirements directory for reproducing the analysis environment
+├── pypoetry.toml   <- The requirements directory for reproducing the analysis environment
 │
 ├── src                <- Source code for use in this project.
 │   ├── __init__.py    <- Makes src a Python module
@@ -79,9 +71,4 @@ We welcome contributions! [See the docs for guidelines](https://drivendata.githu
 ### Installing development requirements
 ------------
 
-    pip install -r requirements.txt
-
-### Running the tests
-------------
-
-    py.test tests
+    poetry install
