@@ -2,47 +2,28 @@
 
 {{cookiecutter.description}}
 
-## Project Organization
 
-    ├── Justfile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── 30_processed      <- The final, canonical data sets for modeling.
-    │   ├── 20_interim        <- Intermediate data that has been transformed.
-    │   └── 10_raw            <- The original, immutable data dump.
-    │
-    ├── nbs                   <- Jupyter notebooks. Namiwith creator's initials, a number (for ordering), and short `-` delimited description, e.g.
-    │                         `jqp-1.0-initial-data-exploration`.
-    │
-    ├── pyproject.toml    <- defines project dependencies and build configuration
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-           └── visualize.py
+Project status: TODO
+
+Project plan:
+
+- [x] Init
+- [ ] Fill out README
+- [ ] ???
+- [ ] Profit
 
 
 ## Install requirements
 
-This project uses poetry for requirement and is set up for torch using cuda.
-```
+This project uses [poetry](https://python-poetry.org/) for requirement and is set up for torch using cuda.
+~~~
 poetry install
-```
+~~~
 
 ## How to get data
 
 TODO document how to get the data
+
 
 ## How to run
 
@@ -51,6 +32,36 @@ This project uses [just](https://github.com/casey/just)
 ~~~
 just --list
 ~~~
+
+
+## Project Organization
+
+Note this project uses
+
+- [Justfile](https://github.com/casey/just): Command runner with commands like `just data` or `just train`
+- data: [data directory ](https://cookiecutter-data-science.drivendata.org/#directory-structure)
+    - ./10_raw            <- The original, immutable data dump.
+    - ./20_interim        <- Intermediate data that has been transformed.
+    - ./30_processed      <- The final, canonical data sets for modeling.
+- nbs: upyter notebooks. Name with creator's initials, a number (for ordering), and short `-` delimited description, e.g.  `jqp-1.0-initial-data-exploration`.
+- pyproject.toml:   defines poetry project dependencies and build configuration
+- {{cookiecutter.project_name}}:    Source code for use in this project.
+
+
+## How to cite
+
+~~~bibtext
+@software{wassname2024{{ cookiecutter.project_name.lower().replace(' ', '_') },
+  author = {Clark, M.J.},
+  title = { {{cookiecutter.project_name}} },
+  year = {2024},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  url = {https://github.com/wassname/{{ cookiecutter.project_name.lower().replace(' ', '_') }} },
+  commit = {<commit hash>}
+}
+~~~
+
 
 --------
 
