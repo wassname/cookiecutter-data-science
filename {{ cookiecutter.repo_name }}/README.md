@@ -51,7 +51,7 @@ Note this project uses
 ## How to cite
 
 ~~~bibtext
-@software{wassname2024{{ cookiecutter.project_name.lower().replace(' ', '_') },
+@software{wassname2024{{ cookiecutter.project_name.lower().replace(' ', '_') }},
   author = {Clark, M.J.},
   title = { {{cookiecutter.project_name}} },
   year = {2024},
