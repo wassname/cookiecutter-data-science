@@ -6,6 +6,9 @@ authors = ["{{ cookiecutter.author_name }}"]
 license = "MIT"
 readme = "README.md"
 
+[virtualenvs]
+in-project=true
+
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
 torch = {version = "^2.1.0+cu124", source = "pytorch"}
