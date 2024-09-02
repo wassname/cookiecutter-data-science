@@ -43,7 +43,7 @@ Note this project uses
     - ./10_raw            <- The original, immutable data dump.
     - ./20_interim        <- Intermediate data that has been transformed.
     - ./30_processed      <- The final, canonical data sets for modeling.
-- nbs: upyter notebooks. Name with creator's initials, a number (for ordering), and short `-` delimited description, e.g.  `jqp-1.0-initial-data-exploration`.
+- nbs: Jupyter notebooks. Name with creator's initials, a number (for ordering), and short `-` delimited description, e.g.  `jqp-1.0-initial-data-exploration`.
 - pyproject.toml:   defines poetry project dependencies and build configuration
 - {{cookiecutter.project_name}}:    Source code for use in this project.
 
