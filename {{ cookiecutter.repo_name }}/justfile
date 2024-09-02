@@ -1,4 +1,14 @@
-package := "{{cookiecutter.package_name}}"
+# see https://cheatography.com/linux-china/cheat-sheets/justfile/
+
+set dotenv-load
+
+# Export all just variables as environment variables.
+set export
+
+package := "{{cookiecutter.project_name.lower().replace(' ', '_')}}"
+
+[private]
+default: @just --list
 
 # put your run commands here
 app:

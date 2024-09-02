@@ -10,19 +10,19 @@ readme = "README.md"
 in-project=true
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.13"
-torch = {version = "^2.1.0+cu124", source = "pytorch"}
-simple-parsing = "^0.1.4"
-tqdm = "^4.66.1"
+python = ">=3.10"
 numpy = "^1.26.1"
 pandas = "^2.1.1"
-lightning = "^2.1.0"
 matplotlib = "^3.8.0"
-loguru = "^0.7.2"
-einops = "^0.7.0"
 scikit-learn = "^1.3.1"
-pytorch-optimizer = "^2.12.0"
-torchinfo = "^1.8.0"
+loguru = "^0.7.2"
+tqdm = "^4.66.1"
+# einops = "^0.7.0"
+# simple-parsing = "^0.1.4"
+# torch = {version = "^2.1.0+cu124", source = "pytorch"}
+# lightning = "^2.1.0"
+# pytorch-optimizer = "^2.12.0"
+# torchinfo = "^1.8.0"
 # accelerate = "^0.24.1"
 # transformers = "4.34.0"
 # accelerate = "^0.24.1"
@@ -31,10 +31,10 @@ torchinfo = "^1.8.0"
 # einops = "^0.3.1"
 
 [[tool.poetry.source]]
+# pytorch cuda needs to compe from another source https://python-poetry.org/docs/dependency-specification/#source-dependencies
 name = "pytorch"
 url = "https://download.pytorch.org/whl/cu124"
 priority = "explicit"
-
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"
@@ -45,3 +45,7 @@ pylama = "^8.4.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[virtualenvs]
+create = true
+in-project = true
