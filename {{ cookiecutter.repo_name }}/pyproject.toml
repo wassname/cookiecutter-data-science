@@ -6,9 +6,6 @@ authors = ["{{ cookiecutter.author_name }}"]
 license = "MIT"
 readme = "README.md"
 
-[virtualenvs]
-in-project=true
-
 [tool.poetry.dependencies]
 python = ">=3.10"
 numpy = "^1.26.1"
