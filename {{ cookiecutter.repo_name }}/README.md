@@ -15,9 +15,9 @@ Project plan:
 
 ## Install requirements
 
-This project uses [poetry](https://python-poetry.org/) for requirement and is set up for torch using cuda.
+This project uses [uv](https://github.com/astral-sh/uv) for requirements.
 ~~~
-poetry install
+uv sync
 ~~~
 
 ## How to get data
