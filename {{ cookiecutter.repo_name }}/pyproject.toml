@@ -27,10 +27,13 @@ dependencies = [
 dev = [
     "ipykernel>=6.29.5",
     "ipywidgets>=8.1.5",
-    "pytest>=8.0.2",
     "ruff>=0.8.3",
 ]
 
+
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["{{ cookiecutter.project_name.lower().replace(' ', '_') }}"]
