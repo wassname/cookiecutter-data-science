@@ -48,7 +48,7 @@ Note this project uses
 - {{cookiecutter.project_name}}:    Source code for use in this project.
 
 
-## How to cite
+## If you used this work, please aknowledge it by citing this repository
 
 ~~~bibtext
 @software{wassname2024{{ cookiecutter.project_name.lower().replace(' ', '_') }},
