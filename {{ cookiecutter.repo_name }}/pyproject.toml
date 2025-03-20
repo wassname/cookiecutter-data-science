@@ -31,9 +31,24 @@ dev = [
 ]
 
 
+# now there are many build systems we could use, the most compatible is setuptools. This works better with `pip install git+URL` from other tools like pip, poetry, etc
 [build-system]
 requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools]
-packages = ["{{ cookiecutter.project_name.lower().replace(' ', '_') }}"]
+[tool.setuptools.packages.find]
+where = ["."]  # search the root directory
+include = [""{{ cookiecutter.project_name.lower().replace(' ', '_') }}"*"]
+
+# [build-system]
+# requires = ["hatchling"]
+# build-backend = "hatchling.build"
+
+
+# [build-system]
+# requires = ["flit_core>=3.2,<4"]
+# build-backend = "flit_core.buildapi"
+
+# [build-system]
+# requires = ["pdm-backend"]
+# build-backend = "pdm.backend"
